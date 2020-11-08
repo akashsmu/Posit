@@ -22,12 +22,13 @@ const Wrapper = styled.div`
   display: block;
 
   & span {
-    background: #f26522;
+    background: #fff;
     display: block;
     position: relative;
     width: 3.5rem;
     height: 0.4rem;
     margin-bottom: 0.7rem;
+    border-radius: 10px;
     transition: all ease-in-out 0.2s;
   }
 
