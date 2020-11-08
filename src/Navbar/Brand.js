@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Brand = () => {
   return (
-    <StyledBrand>
+    <StyledBrand to="\">
       <Image
         src="https://gramiksha.in/images/logo_gramiksha_128x128.png"
         alt="Company Logo"
@@ -20,9 +21,12 @@ const Image = styled.img`
   margin: auto 0;
 `;
 
-const StyledBrand = styled.div`
+const StyledBrand = styled(Link)`
   display: flex;
-  justify-content: flex-start;
+  justify-self: flex-start;
+  cursor: pointer;
+  align-items: center;
+  text-decoration: none;
 
   h2 {
     display: inline-block;

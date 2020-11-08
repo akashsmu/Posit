@@ -63,8 +63,7 @@ const CollapseMenu = (props) => {
 };
 
 export default CollapseMenu;
-// background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
-// background-color: rgba(30, 60, 30, 1);
+
 const CollapseWrapper = styled(animated.div)`
   background: linear-gradient(
       to bottom,
@@ -77,18 +76,16 @@ const CollapseWrapper = styled(animated.div)`
         rgba(0, 88, 206, 1) 120%
       )
       #989898;
+
   background-blend-mode: multiply, multiply;
 
   height: 100%;
-  width: 100%;
   overflow: auto;
-  position: absolute;
+  position: fixed;
   z-index: 999;
   top: 4.5rem;
   left: 0;
   right: 0;
-  bottom: 0;
-
   @media (min-width: 873px) {
     display: none;
   }
@@ -103,18 +100,17 @@ const NavLinks = styled.ul`
   }
 
   & a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 2rem;
     line-height: 4;
     color: #000;
     text-transform: uppercase;
+    text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease-out;
 
     &:hover {
       color: #4facfe;
+      border-bottom: 1px solid #f26522;
       font-size: 2.4rem;
     }
   }
