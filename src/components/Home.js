@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NavbarFinal from "../Navbar";
 import BackgroundVideo from "../userContent/BackgroundVideo";
-import InfoSection from "./InfoSection";
+import ParallaxPage from "./InfoSection";
 import { homeObjOne } from "./InfoSection/data";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <NavbarFinal navbarOpen={navbarOpen} handleNavbar={handleNavbar} />
       <BackgroundVideo />
-      <InfoSection {...homeObjOne} />
+      <ParallaxPage/>
     </>
   );
 }
