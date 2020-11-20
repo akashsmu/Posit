@@ -16,17 +16,16 @@ const CollapseMenu = (props) => {
               output: [0, -20, 0, -200],
             })
             .interpolate((openValue) => `translate3d(0, ${openValue}px, 0`),
-        }}>
+        }}
+      >
         <NavLinks>
           <li>
-            <a
-              href="https://github.com/gramiksha/website-new/blob/master/src/modules/Navbar/Navbar.js"
-              onClick={props.handleNavbar}>
+            <a href="/" onClick={props.handleNavbar}>
               HOME
             </a>
           </li>
           <li>
-            <a href="/" onClick={props.handleNavbar}>
+            <a href="/projects" onClick={props.handleNavbar}>
               PROJECTS
             </a>
           </li>

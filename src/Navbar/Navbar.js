@@ -25,11 +25,11 @@ const Navbar = (props) => {
           <Brand />
 
           <NavItems style={linkAnimation}>
-            <NavLinks to="\">HOME</NavLinks>
-            <NavLinks to="home">PROJECTS</NavLinks>
-            <NavLinks to="home">EVENTS</NavLinks>
-            <NavLinks to="home">SUPPORT US</NavLinks>
-            <NavLinks to="home">BLOG</NavLinks>
+            <NavLinks to="/">HOME</NavLinks>
+            <NavLinks to="/projects">PROJECTS</NavLinks>
+            <NavLinks to="/events">EVENTS</NavLinks>
+            <NavLinks to="/support">SUPPORT US</NavLinks>
+            <NavLinks to="/blog">BLOG</NavLinks>
           </NavItems>
           <BurgerWrapper>
             <BurgerMenu
