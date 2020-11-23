@@ -15,7 +15,7 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={Home}></Route>
-        <Route exact path="/projects" component={PositConverter}></Route>
+        <Route path="/projects" component={PositConverter}></Route>
         <Route></Route>
         <Route></Route>
       </Switch>
