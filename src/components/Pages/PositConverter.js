@@ -18,8 +18,9 @@ const usestyles = makeStyles((theme) => ({
 export default function PositConverter() {
   const classes = usestyles();
   const [es, setEs] = useState();
-  const [n, setN] = useState(8);
-  const [posit, setposit] = useState(0);
+  const [n, setN] = useState();
+  const [posit, setposit] = useState();
+  const [decimal, setDecimal] = useState();
 
   const handleEsChange = (event) => {
     setEs(event.target.value);
@@ -28,38 +29,29 @@ export default function PositConverter() {
     setN(event.target.value);
   };
 
-  // useEffect(() => {
-  //   const getPositData = async () => {
-  //     await fetch("http://localhost:8000/wel/")
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         setposit(data.posit);
-  //         console.log(data);
-  //       });
-  //   };
-  //   getPositData();
-  // }, [es]);
+  const handleDecimalChange = (event) => {
+    setDecimal(event.target.value);
+  };
 
   const axios = require("axios").default;
   const handleConvert = () => {
     axios
       .post("https://fast-beach-74311.herokuapp.com/wel/", {
-        decimal: 23.125,
+        decimal: decimal,
         esValue: es,
         nValue: n,
       })
       .then(function (response) {
         console.log(response);
+        axios
+          .get("https://fast-beach-74311.herokuapp.com/wel/")
+          .then((data) => (setposit(data.data.posit), console.log(data.data)));
       });
-
-    axios
-      .get("https://fast-beach-74311.herokuapp.com/wel/")
-      .then((data) => console.log(data.data));
   };
 
   return (
     <div>
-      <FormControl className={classes.formcontrol}>
+      <FormControl className={classes.formcontrol} required>
         <InputLabel id="select-es" defaultValue={1}>
           Es Value
         </InputLabel>
@@ -76,7 +68,7 @@ export default function PositConverter() {
           <MenuItem value={6}>6</MenuItem>
         </Select>
       </FormControl>
-      <FormControl className={classes.formcontrol}>
+      <FormControl className={classes.formcontrol} required>
         <InputLabel id="select-n">N Value</InputLabel>
         <Select
           labelId="select-n"
@@ -91,7 +83,10 @@ export default function PositConverter() {
           <MenuItem value={32}>32</MenuItem>
         </Select>
       </FormControl>
-      <FormControl className={classes.formcontrol}>
+      <FormControl
+        className={classes.formcontrol}
+        onChange={handleDecimalChange}
+        required>
         <TextField
           id="standard"
           type="number"
@@ -103,6 +98,7 @@ export default function PositConverter() {
         </Button>
       </FormControl>
       {/* <PositTable></PositTable> */}
+      <div style={{ color: "#000" }}> Posit: {posit}</div>
     </div>
   );
 }
