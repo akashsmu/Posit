@@ -59,7 +59,8 @@ export default function PositConverter() {
           labelId="select-es"
           id="es-select"
           value={es}
-          onChange={handleEsChange}>
+          onChange={handleEsChange}
+        >
           <MenuItem value={1}>1</MenuItem>
           <MenuItem value={2}>2</MenuItem>
           <MenuItem value={3}>3</MenuItem>
@@ -74,7 +75,8 @@ export default function PositConverter() {
           labelId="select-n"
           id="n-select"
           value={n}
-          onChange={handleNChange}>
+          onChange={handleNChange}
+        >
           <MenuItem value={8}>8</MenuItem>
           <MenuItem value={10}>10</MenuItem>
           <MenuItem value={16}>16</MenuItem>
@@ -86,11 +88,13 @@ export default function PositConverter() {
       <FormControl
         className={classes.formcontrol}
         onChange={handleDecimalChange}
-        required>
+        required
+      >
         <TextField
           id="standard"
           type="number"
-          label="Enter a number"></TextField>
+          label="Enter a number"
+        ></TextField>
       </FormControl>
       <FormControl className={classes.formcontrol}>
         <Button color="primary" variant="contained" onClick={handleConvert}>
