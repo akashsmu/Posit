@@ -10,7 +10,7 @@ export default function ParallaxPage(props) {
         tagOuter="figure">
         <img src={props.Image} alt={props.alt} width="100%" height="100%" />
       </Parallax>
-      <Parallax y={["-200px", "-800px"]}>
+      <Parallax y={["-500px", "-900px"]}>
         <div style={{ height: "100%", maxWidth: "50%" }}>
           <div
             style={{
