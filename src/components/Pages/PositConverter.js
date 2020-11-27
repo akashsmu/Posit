@@ -83,6 +83,7 @@ export default function PositConverter() {
 
   const axios = require("axios").default;
   const handleConvert = () => {
+    setposit(null);
     axios
       .post("https://fast-beach-74311.herokuapp.com/wel/", {
         decimal: decimal,
@@ -91,7 +92,6 @@ export default function PositConverter() {
       })
       .then(function (response) {
         console.log(response);
-        setposit(null);
         axios
           .get("https://fast-beach-74311.herokuapp.com/wel/")
           .then((data) => (setposit(data.data.posit), console.log(data.data)));
