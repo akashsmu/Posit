@@ -6,6 +6,7 @@ import {
   makeStyles,
   MenuItem,
   Select,
+  Switch,
   TextField,
   Typography,
 } from "@material-ui/core";
@@ -14,7 +15,6 @@ import styled from "styled-components";
 import "../../../node_modules/react-vis/dist/style.css";
 import {
   XYPlot,
-  LineSeries,
   VerticalGridLines,
   HorizontalGridLines,
   XAxis,
@@ -25,6 +25,15 @@ import {
 import clsx from "clsx";
 import NumberFormat from "react-number-format";
 import ReactLoading from "react-loading";
+import {
+  createMuiTheme,
+  responsiveFontSizes,
+  ThemeProvider,
+} from "@material-ui/core/styles";
+import PositTable from "../../pagesPosit/components/pageComponents/PositTable";
+
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
 
 const usestyles = makeStyles((theme) => ({
   formcontrol: {
@@ -56,7 +65,9 @@ export default function PositConverter() {
   const [posit, setposit] = useState();
   const [decimal, setDecimal] = useState();
   const [value, setValue] = useState();
-
+  const [table, setTable] = useState();
+  const [tableKeys, setTableKeys] = useState();
+  const [showTable, setShowTable] = useState(false);
   const data = [
     { x: 0, y: 8 },
     { x: 1, y: 5 },
@@ -69,7 +80,9 @@ export default function PositConverter() {
     { x: 8, y: 2 },
     { x: 9, y: 0 },
   ];
-
+  const handleShowTable = (event) => {
+    setShowTable(true);
+  };
   const handleEsChange = (event) => {
     setEs(event.target.value);
   };
@@ -94,7 +107,15 @@ export default function PositConverter() {
         console.log(response);
         axios
           .get("https://fast-beach-74311.herokuapp.com/wel/")
-          .then((data) => (setposit(data.data.posit), console.log(data.data)));
+          // eslint-disable-next-line no-sequences
+          .then((data) => {
+            setposit(data.data.posit);
+            setTableKeys(Object.keys(data.data.allEnv));
+            setTable(data.data.allEnv);
+            console.log(data.data);
+            console.log(Object.keys(data.data.allEnv));
+            console.log(data.data.allEnv);
+          });
       });
   };
 
@@ -108,12 +129,20 @@ export default function PositConverter() {
 
   return (
     <>
-      <Typography
-        variant="h2"
-        style={{ color: "#000", textAlign: "center", marginTop: "2%" }}
-      >
-        Convert Decimal to Posit
-      </Typography>
+      <ThemeProvider theme={theme}>
+        <Typography
+          variant="h1"
+          style={{
+            color: "#000",
+            fontFamily: "Courier New",
+            fontWeight: "700",
+            textAlign: "center",
+            marginTop: "2%",
+          }}
+        >
+          Convert Decimal to Posit
+        </Typography>
+      </ThemeProvider>
 
       <MainApp>
         <AppLeft>
@@ -201,7 +230,6 @@ export default function PositConverter() {
               Convert
             </Button>
           </FormControl>
-          {/* <PositTable></PositTable> */}
 
           <PositValue>
             Posit:
@@ -216,14 +244,15 @@ export default function PositConverter() {
               posit
             )}
           </PositValue>
+          <Switch value={showTable} onChange={handleShowTable}></Switch>
         </AppLeft>
         <AppRight>
-          <XYPlot height={400} width={400}>
+          <XYPlot height={350} width={350}>
             {/* <LineSeries data={data} /> */}
             <VerticalGridLines />
             <HorizontalGridLines />
-            <XAxis />
-            <YAxis />
+            <XAxis title="something" />
+            <YAxis title="nothing" />
             <MarkSeries
               onValueMouseOver={rememberValue}
               onValueMouseOut={forgetValue}
@@ -232,6 +261,16 @@ export default function PositConverter() {
             {value ? <Hint value={value} /> : null}
           </XYPlot>
         </AppRight>
+        {console.log(showTable)}
+        {showTable ? (
+          <PositTable
+            allEnv={table}
+            allEnvKeys={tableKeys}
+            style={{ width: "100%" }}
+          ></PositTable>
+        ) : (
+          <></>
+        )}
       </MainApp>
     </>
   );
