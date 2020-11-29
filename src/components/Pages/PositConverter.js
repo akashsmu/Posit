@@ -81,7 +81,7 @@ export default function PositConverter() {
     { x: 9, y: 0 },
   ];
   const handleShowTable = (event) => {
-    setShowTable(true);
+    setShowTable(!showTable);
   };
   const handleEsChange = (event) => {
     setEs(event.target.value);
@@ -107,7 +107,6 @@ export default function PositConverter() {
         console.log(response);
         axios
           .get("https://fast-beach-74311.herokuapp.com/wel/")
-          // eslint-disable-next-line no-sequences
           .then((data) => {
             setposit(data.data.posit);
             setTableKeys(Object.keys(data.data.allEnv));
