@@ -11,18 +11,13 @@ import {
 
 export default function PositGraph({ allEnv, allEnvKeys }) {
   const [value, setValue] = useState();
-  const data = [
-    { x: 0, y: 0 },
-    { x: 1, y: 1 },
-    { x: 2, y: 2 },
-    { x: 3, y: 9 },
-    { x: 4, y: 1 },
-    { x: 5, y: 7 },
-    { x: 6, y: 6 },
-    { x: 7, y: 3 },
-    { x: 8, y: 2 },
-    { x: 9, y: 0 },
+  const data1 = [
+    allEnvKeys.map((key) => ({
+      x: parseInt(key.split("_")[0]),
+      y: allEnv[key][1],
+    })),
   ];
+  console.log(data1);
   const rememberValue = (value) => {
     setValue(value);
   };
@@ -36,12 +31,12 @@ export default function PositGraph({ allEnv, allEnvKeys }) {
         {/* <LineSeries data={data} /> */}
         <VerticalGridLines />
         <HorizontalGridLines />
-        <XAxis title="something" />
-        <YAxis title="nothing" />
+        <XAxis title="Posit Length (N value)" />
+        <YAxis title="Relative Error" />
         <MarkSeries
           onValueMouseOver={rememberValue}
           onValueMouseOut={forgetValue}
-          data={data}
+          data={data1[0]}
         />
         {value ? <Hint value={value} /> : null}
       </XYPlot>

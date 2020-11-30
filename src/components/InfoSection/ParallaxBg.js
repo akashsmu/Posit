@@ -7,10 +7,11 @@ export default function ParallaxPage(props) {
       <Parallax
         className="custom-class"
         y={["-11px", "10px"]}
-        tagOuter="figure">
+        tagOuter="figure"
+      >
         <img src={props.Image} alt={props.alt} width="100%" height="100%" />
       </Parallax>
-      <Parallax y={["-500px", "-900px"]}>
+      <Parallax y={["-400px", "-800px"]}>
         <div style={{ height: "100%", maxWidth: "50%" }}>
           <div
             style={{
@@ -20,7 +21,8 @@ export default function ParallaxPage(props) {
               transform: "translate(-50%, -50%)",
               fontSize: "2rem",
               color: props.Color,
-            }}>
+            }}
+          >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Consectetur lorem donec massa sapien faucibus et molestie ac. At

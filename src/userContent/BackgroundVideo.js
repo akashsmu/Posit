@@ -13,7 +13,7 @@ function BackgroundVideo() {
   return (
     <Herocontainer id="home">
       <Herobg>
-        <Videobg autoPlay loop muted src={sample} type="video/mp4" />
+        <Videobg autoPlay muted src={sample} type="video/mp4" />
       </Herobg>
       <HeroContent>
         <HeroH1> POSIT made easy</HeroH1>
@@ -28,7 +28,8 @@ function BackgroundVideo() {
             dark="true"
             big="false"
             onMouseEnter={onHover}
-            onMouseLeave={onHover}>
+            onMouseLeave={onHover}
+          >
             Get Started {hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
         </HeroBtnWrapper>

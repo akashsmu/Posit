@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div>
       <ParallaxProvider>
-        {/* <BackgroundVideo /> */}
+        <BackgroundVideo />
         <ParallaxPage />
       </ParallaxProvider>
     </div>
