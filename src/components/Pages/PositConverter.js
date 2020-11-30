@@ -6,22 +6,12 @@ import {
   makeStyles,
   MenuItem,
   Select,
-  Switch,
   TextField,
   Typography,
 } from "@material-ui/core";
 // import PositTable from "./pageComponents/PositTable";
 import styled from "styled-components";
 import "../../../node_modules/react-vis/dist/style.css";
-import {
-  XYPlot,
-  VerticalGridLines,
-  HorizontalGridLines,
-  XAxis,
-  YAxis,
-  MarkSeries,
-  Hint,
-} from "react-vis";
 import clsx from "clsx";
 import NumberFormat from "react-number-format";
 import ReactLoading from "react-loading";
@@ -30,7 +20,8 @@ import {
   responsiveFontSizes,
   ThemeProvider,
 } from "@material-ui/core/styles";
-import PositTable from "../../pagesPosit/components/pageComponents/PositTable";
+import PositTable from "./PositTable";
+import PositGraph from "./PositGraph";
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
@@ -60,28 +51,26 @@ const usestyles = makeStyles((theme) => ({
 
 export default function PositConverter() {
   const classes = usestyles();
-  const [es, setEs] = useState();
-  const [n, setN] = useState();
+  const [es, setEs] = useState(0);
+  const [n, setN] = useState(0);
   const [posit, setposit] = useState();
-  const [decimal, setDecimal] = useState();
-  const [value, setValue] = useState();
+  const [decimal, setDecimal] = useState(0);
+
   const [table, setTable] = useState();
   const [tableKeys, setTableKeys] = useState();
   const [showTable, setShowTable] = useState(false);
-  const data = [
-    { x: 0, y: 8 },
-    { x: 1, y: 5 },
-    { x: 2, y: 4 },
-    { x: 3, y: 9 },
-    { x: 4, y: 1 },
-    { x: 5, y: 7 },
-    { x: 6, y: 6 },
-    { x: 7, y: 3 },
-    { x: 8, y: 2 },
-    { x: 9, y: 0 },
-  ];
+  const [name, setName] = useState("Show Table");
+  const [gname, setGname] = useState("Show Graph");
+  const [disabled, setDisabled] = useState(true);
+  const [showGraph, setShowGraph] = useState(false);
+
   const handleShowTable = (event) => {
     setShowTable(!showTable);
+    !showTable ? setName("Hide Table") : setName("Show Table");
+  };
+  const handleGname = (event) => {
+    setShowGraph(!showGraph);
+    !showGraph ? setGname("Hide Graph") : setGname("Show Graph");
   };
   const handleEsChange = (event) => {
     setEs(event.target.value);
@@ -97,6 +86,11 @@ export default function PositConverter() {
   const axios = require("axios").default;
   const handleConvert = () => {
     setposit(null);
+    setShowTable(false);
+    setShowGraph(false);
+    setName("Show Table");
+    setGname("Show Graph");
+    setDisabled(true);
     axios
       .post("https://fast-beach-74311.herokuapp.com/wel/", {
         decimal: decimal,
@@ -108,22 +102,23 @@ export default function PositConverter() {
         axios
           .get("https://fast-beach-74311.herokuapp.com/wel/")
           .then((data) => {
-            setposit(data.data.posit);
-            setTableKeys(Object.keys(data.data.allEnv));
-            setTable(data.data.allEnv);
-            console.log(data.data);
-            console.log(Object.keys(data.data.allEnv));
-            console.log(data.data.allEnv);
+            setposit(data.data[0].posit);
+            setTableKeys(Object.keys(data.data[0].allEnv));
+            setTable(data.data[0].allEnv);
+            setDisabled(false);
+
+            // console.log(data.data[0]);
+            // console.log(Object.keys(data.data[0].allEnv));
+            // console.log(data.data[0].allEnv);
           });
       });
   };
 
-  const rememberValue = (value) => {
-    setValue(value);
-  };
-
-  const forgetValue = () => {
-    setValue(null);
+  const handleClear = () => {
+    setposit("");
+    setDecimal(0);
+    setEs(0);
+    setN(0);
   };
 
   return (
@@ -149,21 +144,18 @@ export default function PositConverter() {
             required
             className={clsx(classes.formcontrol, classes.TextWidth)}
           >
-            <InputLabel
-              id="select-es"
-              defaultValue={0}
-              style={{ fontSize: "1.3rem" }}
-            >
+            <InputLabel id="select-es" style={{ fontSize: "1.3rem" }}>
               Es Value
             </InputLabel>
             <Select
               labelId="select-es"
               id="es-select"
               value={es}
+              defaultValue={0}
               onChange={handleEsChange}
               className={classes.customInput}
             >
-              <MenuItem value={6} style={{ fontSize: "1.3rem" }}>
+              <MenuItem value={0} style={{ fontSize: "1.3rem" }}>
                 0
               </MenuItem>
               <MenuItem value={1} style={{ fontSize: "1.3rem" }}>
@@ -189,8 +181,10 @@ export default function PositConverter() {
           >
             <TextField
               required
+              autoComplete={"off"}
               id="standard"
               type="number"
+              value={n}
               label="Enter N Value"
               InputProps={{
                 inputProps: { min: 0, max: 60 },
@@ -208,6 +202,8 @@ export default function PositConverter() {
               required
               label="Enter a Decimal Number"
               id="standard"
+              autoComplete={"off"}
+              value={decimal}
               InputProps={{
                 classes: {
                   input: classes.customInput,
@@ -243,37 +239,65 @@ export default function PositConverter() {
               posit
             )}
           </PositValue>
-          <Switch value={showTable} onChange={handleShowTable}></Switch>
+          <ButtonDiv>
+            <Button
+              variant="contained"
+              onClick={handleShowTable}
+              disabled={disabled}
+              classes={{
+                root: classes.ConvertButton,
+              }}
+            >
+              {name}
+            </Button>
+
+            <Button
+              variant="contained"
+              onClick={handleClear}
+              classes={{
+                root: classes.ConvertButton,
+              }}
+            >
+              Clear Values
+            </Button>
+          </ButtonDiv>
         </AppLeft>
         <AppRight>
-          <XYPlot height={350} width={350}>
-            {/* <LineSeries data={data} /> */}
-            <VerticalGridLines />
-            <HorizontalGridLines />
-            <XAxis title="something" />
-            <YAxis title="nothing" />
-            <MarkSeries
-              onValueMouseOver={rememberValue}
-              onValueMouseOut={forgetValue}
-              data={data}
-            />
-            {value ? <Hint value={value} /> : null}
-          </XYPlot>
+          <Button
+            onClick={handleGname}
+            disabled={disabled}
+            classes={{
+              root: classes.ConvertButton,
+            }}
+            variant="contained"
+          >
+            {gname}
+          </Button>
+          {showGraph ? (
+            <PositGraph allEnv={table} allEnvKeys={tableKeys}></PositGraph>
+          ) : (
+            <></>
+          )}
         </AppRight>
-        {console.log(showTable)}
-        {showTable ? (
-          <PositTable
-            allEnv={table}
-            allEnvKeys={tableKeys}
-            style={{ width: "100%" }}
-          ></PositTable>
-        ) : (
-          <></>
-        )}
       </MainApp>
+      {showTable ? (
+        <PosTable>
+          <PositTable allEnv={table} allEnvKeys={tableKeys}></PositTable>
+        </PosTable>
+      ) : (
+        <> </>
+      )}
     </>
   );
 }
+
+const PosTable = styled.div``;
+
+const ButtonDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
 
 const MainApp = styled.div`
   display: flex;
@@ -298,8 +322,8 @@ const PositValue = styled.div`
   @media screen and (max-width: 768px) {
     font-size: small;
   }
-
-  width: 80px;
+  word-wrap: break-word;
+  width: 600px;
 `;
 const AppRight = styled.div`
   margin: 5% 0%;
