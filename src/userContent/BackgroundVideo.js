@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import { MdKeyboardArrowRight, MdArrowForward } from "react-icons/md";
+import TextAnimation from "./TextAnimation";
 
 function BackgroundVideo() {
   const [hover, setHover] = useState(false);
@@ -14,10 +15,10 @@ function BackgroundVideo() {
     <Herocontainer id="home">
       <Herobg>
         <Videobg src={sample} alt="hardware" />
-        {/* <img src="../components/InfoSection/hardwareRed.jpg" alt="hardware" /> */}
       </Herobg>
       <HeroContent>
-        <HeroH1> POSIT made easy</HeroH1>
+        <TextAnimation />
+        <HeroH1></HeroH1>
         <HeroP>
           Signdashasd uiadkashdasgd uhashh skjds auidqkasdhhja dh wu uiwrye
           weioq qwiyeuqyeqio iwyoeu quiye
@@ -92,7 +93,7 @@ const HeroContent = styled.div`
   align-items: center;
 `;
 
-const HeroH1 = styled.h1`
+const HeroH1 = styled.div`
   color: #fff;
   font-size: 48px;
   text-align: center;

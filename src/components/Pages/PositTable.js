@@ -11,6 +11,7 @@ import Paper from "@material-ui/core/Paper";
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
+    backgroundColor: "none",
   },
   root: {
     fontFamily: "Courier New",
@@ -41,7 +42,7 @@ export default function PositTable({ allEnv, allEnvKeys }) {
   const classes = useStyles();
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>

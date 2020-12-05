@@ -29,8 +29,8 @@ export default function PositGraph({ allEnv, allEnvKeys }) {
   return (
     <Wrapper>
       <XYPlot height={350} width={350}>
-        <VerticalGridLines />
-        <HorizontalGridLines />
+        <VerticalGridLines style={{ stroke: "black" }} />
+        <HorizontalGridLines style={{ stroke: "black" }} />
         <XAxis title="Posit Length (N value)" />
         <YAxis title="Relative Error" />
         <MarkSeries
@@ -45,5 +45,5 @@ export default function PositGraph({ allEnv, allEnvKeys }) {
 }
 
 const Wrapper = styled.div`
-  margin-top: 5%;
+  margin-top: 10%;
 `;

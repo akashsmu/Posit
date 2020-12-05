@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { useSpring, animated } from "react-spring";
+import { Link } from "react-router-dom";
 
 const CollapseMenu = (props) => {
   const { open } = useSpring({ open: props.navbarState ? 0 : 1 });
@@ -18,43 +19,13 @@ const CollapseMenu = (props) => {
             .interpolate((openValue) => `translate3d(0, ${openValue}px, 0`),
         }}
       >
-        <NavLinks>
-          <li>
-            <a href="/" onClick={props.handleNavbar}>
-              HOME
-            </a>
-          </li>
-          <li>
-            <a href="/projects" onClick={props.handleNavbar}>
-              PROJECTS
-            </a>
-          </li>
-          <li>
-            <a href="/" onClick={props.handleNavbar}>
-              EVENTS
-            </a>
-          </li>
-          <li>
-            <a href="/" onClick={props.handleNavbar}>
-              JOIN US
-            </a>
-          </li>
-          <li>
-            <a href="/" onClick={props.handleNavbar}>
-              SUPPORT US
-            </a>
-          </li>
-          <li>
-            <a href="/" onClick={props.handleNavbar}>
-              RAHAT COVID-19
-            </a>
-          </li>
-          <li>
-            <a href="/" onClick={props.handleNavbar}>
-              BLOG
-            </a>
-          </li>
-        </NavLinks>
+        <NavItems>
+          <NavLinks to="/">Home</NavLinks>
+
+          <NavLinks to="/projects">Projects</NavLinks>
+
+          <NavLinks to="/resources">Resources</NavLinks>
+        </NavItems>
       </CollapseWrapper>
     );
   }
@@ -90,9 +61,13 @@ const CollapseWrapper = styled(animated.div)`
   }
 `;
 
-const NavLinks = styled.ul`
+const NavItems = styled.ul`
   list-style-type: none;
   padding: 4rem 1rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   & li {
     transition: all 300ms linear 0s;
@@ -100,7 +75,7 @@ const NavLinks = styled.ul`
 
   & a {
     font-size: 2rem;
-    line-height: 4;
+    line-height: 8;
     color: #000;
     text-transform: uppercase;
     text-decoration: none;
@@ -109,8 +84,17 @@ const NavLinks = styled.ul`
 
     &:hover {
       color: #4facfe;
-      border-bottom: 1px solid #f26522;
-      font-size: 2.4rem;
+      font-size: 2.5rem;
     }
   }
+`;
+const NavLinks = styled(Link)`
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+  margin: 0 1.5rem;
+  transition: all 300ms linear 0s;
+  text-decoration: none;
+  cursor: pointer;
 `;

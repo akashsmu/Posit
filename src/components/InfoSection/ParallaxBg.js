@@ -3,15 +3,11 @@ import { Parallax } from "react-scroll-parallax";
 
 export default function ParallaxPage(props) {
   return (
-    <div style={{ height: "200vh" }}>
-      <Parallax
-        className="custom-class"
-        y={["-11px", "10px"]}
-        tagOuter="figure"
-      >
+    <div style={{ height: "100%" }}>
+      <Parallax className="custom-class" y={["0px", "0px"]} tagOuter="figure">
         <img src={props.Image} alt={props.alt} width="100%" height="100%" />
       </Parallax>
-      <Parallax y={["-400px", "-800px"]}>
+      <Parallax y={[props.topOff, props.bottomOff]}>
         <div style={{ height: "100%", maxWidth: "50%" }}>
           <div
             style={{

@@ -300,8 +300,8 @@ export default function PositConverter() {
 
 const PosTable = styled.div``;
 const Wrapper = styled.div`
-  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
-  height: 100vh;
+  background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
+  height: auto;
 `;
 const ButtonDiv = styled.div`
   display: flex;

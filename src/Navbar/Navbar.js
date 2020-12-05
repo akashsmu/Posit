@@ -27,9 +27,7 @@ const Navbar = (props) => {
           <NavItems style={linkAnimation}>
             <NavLinks to="/">HOME</NavLinks>
             <NavLinks to="/projects">PROJECTS</NavLinks>
-            <NavLinks to="/events">EVENTS</NavLinks>
-            <NavLinks to="/support">SUPPORT US</NavLinks>
-            <NavLinks to="/blog">BLOG</NavLinks>
+            <NavLinks to="/resources">Resources</NavLinks>
           </NavItems>
           <BurgerWrapper>
             <BurgerMenu
