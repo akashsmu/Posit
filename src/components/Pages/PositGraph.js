@@ -8,6 +8,7 @@ import {
   XYPlot,
   YAxis,
 } from "react-vis";
+import styled from "styled-components";
 
 export default function PositGraph({ allEnv, allEnvKeys }) {
   const [value, setValue] = useState();
@@ -26,7 +27,7 @@ export default function PositGraph({ allEnv, allEnvKeys }) {
     setValue(null);
   };
   return (
-    <div>
+    <Wrapper>
       <XYPlot height={350} width={350}>
         {/* <LineSeries data={data} /> */}
         <VerticalGridLines />
@@ -40,6 +41,10 @@ export default function PositGraph({ allEnv, allEnvKeys }) {
         />
         {value ? <Hint value={value} /> : null}
       </XYPlot>
-    </div>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  margin-top: 5%;
+`;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import sample from "./video.mp4";
+import sample from "../components/InfoSection/hardwareRed.jpg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -13,7 +13,8 @@ function BackgroundVideo() {
   return (
     <Herocontainer id="home">
       <Herobg>
-        <Videobg autoPlay muted src={sample} type="video/mp4" />
+        <Videobg src={sample} alt="hardware" />
+        {/* <img src="../components/InfoSection/hardwareRed.jpg" alt="hardware" /> */}
       </Herobg>
       <HeroContent>
         <HeroH1> POSIT made easy</HeroH1>
@@ -75,7 +76,7 @@ const Herobg = styled.div`
   overflow: hidden;
 `;
 
-const Videobg = styled.video`
+const Videobg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;

@@ -9,6 +9,7 @@ function App() {
   const handleNavbar = () => {
     setnavbarOpen(!navbarOpen);
   };
+
   return (
     <Router>
       <NavbarFinal navbarOpen={navbarOpen} handleNavbar={handleNavbar} />

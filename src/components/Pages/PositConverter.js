@@ -22,6 +22,7 @@ import {
 } from "@material-ui/core/styles";
 import PositTable from "./PositTable";
 import PositGraph from "./PositGraph";
+import sample from "../../components/InfoSection/hardwareRed.jpg";
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
@@ -38,6 +39,11 @@ const usestyles = makeStyles((theme) => ({
     width: "200px",
   },
   ConvertButton: {
+    width: "150px",
+    height: "50px",
+    fontSize: "1.5rem",
+  },
+  ConvertButtons: {
     width: "150px",
     height: "50px",
     fontSize: "1.5rem",
@@ -122,7 +128,7 @@ export default function PositConverter() {
   };
 
   return (
-    <>
+    <Wrapper>
       <ThemeProvider theme={theme}>
         <Typography
           variant="h1"
@@ -131,7 +137,7 @@ export default function PositConverter() {
             fontFamily: "Courier New",
             fontWeight: "700",
             textAlign: "center",
-            marginTop: "2%",
+            paddingTop: "2%",
           }}
         >
           Convert Decimal to Posit
@@ -239,6 +245,7 @@ export default function PositConverter() {
               posit
             )}
           </PositValue>
+
           <ButtonDiv>
             <Button
               variant="contained"
@@ -267,7 +274,7 @@ export default function PositConverter() {
             onClick={handleGname}
             disabled={disabled}
             classes={{
-              root: classes.ConvertButton,
+              root: classes.ConvertButtons,
             }}
             variant="contained"
           >
@@ -287,12 +294,15 @@ export default function PositConverter() {
       ) : (
         <> </>
       )}
-    </>
+    </Wrapper>
   );
 }
 
 const PosTable = styled.div``;
-
+const Wrapper = styled.div`
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  height: 100vh;
+`;
 const ButtonDiv = styled.div`
   display: flex;
   justify-content: space-between;
