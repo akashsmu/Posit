@@ -29,7 +29,6 @@ export default function PositGraph({ allEnv, allEnvKeys }) {
   return (
     <Wrapper>
       <XYPlot height={350} width={350}>
-        {/* <LineSeries data={data} /> */}
         <VerticalGridLines />
         <HorizontalGridLines />
         <XAxis title="Posit Length (N value)" />
