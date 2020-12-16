@@ -18,7 +18,7 @@ export default function PositGraph({ allEnv, allEnvKeys }) {
       y: allEnv[key][1],
     })),
   ];
-  console.log(data1);
+
   const rememberValue = (value) => {
     setValue(value);
   };

@@ -10,8 +10,8 @@ function FinalHome() {
         Image={Image2}
         alt={"Float"}
         Color={"white"}
-        topOff={"-550px"}
-        bottomOff={"-900px"}
+        topOff={"-600px"}
+        bottomOff={"-950px"}
       />
       {/* <ParallaxPage
         Image={Image1}

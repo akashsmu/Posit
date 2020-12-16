@@ -22,7 +22,6 @@ import {
 } from "@material-ui/core/styles";
 import PositTable from "./PositTable";
 import PositGraph from "./PositGraph";
-import sample from "../../components/InfoSection/hardwareRed.jpg";
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
@@ -138,8 +137,7 @@ export default function PositConverter() {
             fontWeight: "700",
             textAlign: "center",
             paddingTop: "2%",
-          }}
-        >
+          }}>
           Convert Decimal to Posit
         </Typography>
       </ThemeProvider>
@@ -148,8 +146,7 @@ export default function PositConverter() {
         <AppLeft>
           <FormControl
             required
-            className={clsx(classes.formcontrol, classes.TextWidth)}
-          >
+            className={clsx(classes.formcontrol, classes.TextWidth)}>
             <InputLabel id="select-es" style={{ fontSize: "1.3rem" }}>
               Es Value
             </InputLabel>
@@ -159,8 +156,7 @@ export default function PositConverter() {
               value={es}
               defaultValue={0}
               onChange={handleEsChange}
-              className={classes.customInput}
-            >
+              className={classes.customInput}>
               <MenuItem value={0} style={{ fontSize: "1.3rem" }}>
                 0
               </MenuItem>
@@ -183,8 +179,7 @@ export default function PositConverter() {
           </FormControl>
           <FormControl
             className={clsx(classes.formcontrol, classes.TextWidth)}
-            onChange={handleNChange}
-          >
+            onChange={handleNChange}>
             <TextField
               required
               autoComplete={"off"}
@@ -197,13 +192,11 @@ export default function PositConverter() {
                 classes: { input: classes.customInput },
               }}
               InputLabelProps={{ classes: { root: classes.customLabel } }}
-              style={{ fontSize: "1.5rem" }}
-            ></TextField>
+              style={{ fontSize: "1.5rem" }}></TextField>
           </FormControl>
           <FormControl
             className={clsx(classes.formcontrol, classes.TextWidth)}
-            onChange={handleDecimalChange}
-          >
+            onChange={handleDecimalChange}>
             <TextField
               required
               label="Enter a Decimal Number"
@@ -226,8 +219,7 @@ export default function PositConverter() {
               onClick={handleConvert}
               classes={{
                 root: classes.ConvertButton,
-              }}
-            >
+              }}>
               Convert
             </Button>
           </FormControl>
@@ -239,8 +231,7 @@ export default function PositConverter() {
                 type={"spinningBubbles"}
                 color={"gray"}
                 height={"3rem"}
-                width={"3rem"}
-              ></ReactLoading>
+                width={"3rem"}></ReactLoading>
             ) : (
               posit
             )}
@@ -253,8 +244,7 @@ export default function PositConverter() {
               disabled={disabled}
               classes={{
                 root: classes.ConvertButton,
-              }}
-            >
+              }}>
               {name}
             </Button>
 
@@ -263,8 +253,7 @@ export default function PositConverter() {
               onClick={handleClear}
               classes={{
                 root: classes.ConvertButton,
-              }}
-            >
+              }}>
               Clear Values
             </Button>
           </ButtonDiv>
@@ -276,8 +265,7 @@ export default function PositConverter() {
             classes={{
               root: classes.ConvertButtons,
             }}
-            variant="contained"
-          >
+            variant="contained">
             {gname}
           </Button>
           {showGraph ? (

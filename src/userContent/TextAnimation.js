@@ -1,7 +1,7 @@
 import React from "react";
 import { Frame } from "framer";
 
-function TextAnimation() {
+function TextAnimation(props) {
   const string = Array.from("POSIT");
   return (
     <Frame
@@ -13,7 +13,7 @@ function TextAnimation() {
         fontFamily: "Montserrat, Work Sans, sans-serif",
         fontWeight: "bold",
         letterSpacing: "-0.04em",
-        fontSize: "6rem",
+        fontSize: `${props.size === "small" ? "7rem" : "10rem"}`,
         color: "#fff",
         display: "flex", // Set the display value to flex
         justifyContent: "center", // Center all children elements on the x axis
@@ -21,8 +21,7 @@ function TextAnimation() {
       }}
       variants={containerVariants}
       initial={"before"}
-      animate={"after"}
-    >
+      animate={"after"}>
       {string.map((letter, index) => (
         <Frame
           key={index}
@@ -30,8 +29,7 @@ function TextAnimation() {
           height={26} // Set the height to the height of the text
           background={""}
           style={{ position: "relative" }} // Position elements
-          variants={letterVariants}
-        >
+          variants={letterVariants}>
           {letter === " " ? "\u00A0" : letter}
         </Frame>
       ))}

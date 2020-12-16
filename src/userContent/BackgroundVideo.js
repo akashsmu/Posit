@@ -18,12 +18,12 @@ function BackgroundVideo() {
       </Herobg>
       <HeroContent>
         <TextAnimation />
-        <HeroH1></HeroH1>
-        <HeroP>
+        {/* <HeroH1></HeroH1> */}
+        {/* <HeroP>
           Signdashasd uiadkashdasgd uhashh skjds auidqkasdhhja dh wu uiwrye
           weioq qwiyeuqyeqio iwyoeu quiye
-        </HeroP>
-        <HeroBtnWrapper>
+        </HeroP> */}
+        {/* <HeroBtnWrapper>
           <Button
             to="/"
             primary="true"
@@ -34,7 +34,7 @@ function BackgroundVideo() {
           >
             Get Started {hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
-        </HeroBtnWrapper>
+        </HeroBtnWrapper> */}
       </HeroContent>
     </Herocontainer>
   );
