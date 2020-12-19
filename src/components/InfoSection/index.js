@@ -10,15 +10,9 @@ function FinalHome() {
         Image={Image2}
         alt={"Float"}
         Color={"white"}
-        topOff={"-600px"}
-        bottomOff={"-950px"}
+        topOff={"-450px"}
+        bottomOff={"-700px"}
       />
-      {/* <ParallaxPage
-        Image={Image1}
-        alt={"hardware"}
-        topOff={"-550px"}
-        bottomOff={"-900px"}
-      /> */}
     </div>
   );
 }

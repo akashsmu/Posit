@@ -21,6 +21,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "black",
     color: "white",
     minHeight: "200px",
+    display: "flex",
+    justifyContent: "space-evenly",
   },
 }));
 
@@ -31,9 +33,12 @@ function Footer() {
       <CssBaseline />
 
       <footer className={classes.footer}>
-        <Container maxWidth="sm">
-          <Typography variant="body1" className={classes.footerP}>
-            My sticky footer can be found here.
+        <Container maxWidth="sm" className={classes.footerP}>
+          <Typography variant="body1">
+            Narayana M Hedge Email: narayanahedge83@gmail.com
+          </Typography>
+          <Typography variant="body1">
+            Akash S M U Email: smu.akash9@gmail.com
           </Typography>
         </Container>
       </footer>

@@ -1,5 +1,7 @@
 import { Typography, makeStyles } from "@material-ui/core";
 import React from "react";
+import styled from 'styled-components'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,10 +24,10 @@ function Resources() {
       </Typography>
       <div className={classes.ieeeResource}>
         <Typography variant="h4"> IEEE 754 </Typography>
-        <ul>
-          <li>Wikipedia Page on IEEE 754</li>
-          <li>Decimal To IEEE 754 Converter</li>
-        </ul>
+        <NavItems>
+          <NavLinks>Wikipedia Page on IEEE 754</NavLinks>
+          <NavLinks>Decimal To IEEE 754 Converter</NavLinks>
+        </NavItems>
       </div>
       <div>
         <Typography variant="h4"> POSIT </Typography>
@@ -33,5 +35,13 @@ function Resources() {
     </div>
   );
 }
+
+
+
+
+const NavItems=styled.ul``;
+
+const NavLinks=styled.li``
+
 
 export default Resources;

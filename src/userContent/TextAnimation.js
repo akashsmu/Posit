@@ -17,7 +17,7 @@ function TextAnimation(props) {
         color: "#fff",
         display: "flex", // Set the display value to flex
         justifyContent: "center", // Center all children elements on the x axis
-        top: "0%",
+        top: "-40%",
       }}
       variants={containerVariants}
       initial={"before"}

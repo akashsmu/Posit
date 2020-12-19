@@ -14,7 +14,7 @@ export default function ParallaxPage(props) {
   return (
     <div style={{ height: "100%" }}>
       <Parallax className="custom-class" y={["0px", "0px"]} tagOuter="figure">
-        <img src={props.Image} alt={props.alt} width="100%" height="100%" />
+        <Videobg src={props.Image} alt={props.alt} />
       </Parallax>
       <Parallax y={[props.topOff, props.bottomOff]}>
         <div style={{ height: "100%", maxWidth: "50%" }}>
@@ -87,11 +87,12 @@ export default function ParallaxPage(props) {
 //   overflow: hidden;
 // `;
 
-// const Videobg = styled.img`
-//   width: 100%;
-//   height: 100%;
-//   object-fit: cover;
-// `;
+const Videobg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(3px) contrast(70%);
+`;
 
 const HeroContent = styled.div`
   z-index: 3;
@@ -104,20 +105,20 @@ const HeroContent = styled.div`
   align-items: center;
 `;
 
-const HeroH1 = styled.div`
-  color: #fff;
-  font-size: 48px;
-  text-align: center;
-  @media screen and (max-width: 768px) {
-    font-size: 40px;
-  }
-  @media screen and (max-width: 480px) {
-    font-size: 32px;
-  }
-`;
+// const HeroH1 = styled.div`
+//   color: #fff;
+//   font-size: 48px;
+//   text-align: center;
+//   @media screen and (max-width: 768px) {
+//     font-size: 40px;
+//   }
+//   @media screen and (max-width: 480px) {
+//     font-size: 32px;
+//   }
+// `;
 
 const HeroP = styled.p`
-  margin-top: 24px;
+  margin-top: 40px;
   color: #fff;
   font-size: 24px;
   text-align: center;

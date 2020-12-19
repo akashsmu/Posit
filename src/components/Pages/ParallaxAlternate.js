@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import sample from "../components/InfoSection/hardwareRed.jpg";
+import sample from "../InfoSection/hardware.jpg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import { MdKeyboardArrowRight, MdArrowForward } from "react-icons/md";
 import TextAnimation from "./TextAnimation";
 
-function BackgroundVideo() {
+function ParallaxAlternate() {
   const [hover, setHover] = useState(false);
   const onHover = () => {
     setHover(!hover);
@@ -18,6 +18,18 @@ function BackgroundVideo() {
       </Herobg>
       <HeroContent>
         <TextAnimation />
+        <HeroP>For More Info On Posit , Head To Resources</HeroP>
+        <HeroBtnWrapper>
+          <Button
+            to="/"
+            primary="true"
+            dark="true"
+            big="false"
+            onMouseEnter={onHover}
+            onMouseLeave={onHover}>
+            Get Started {hover ? <ArrowForward /> : <ArrowRight />}
+          </Button>
+        </HeroBtnWrapper>
       </HeroContent>
     </Herocontainer>
   );
@@ -64,7 +76,6 @@ const Videobg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(5px) contrast(120%);
 `;
 
 const HeroContent = styled.div`
@@ -140,4 +151,4 @@ const ArrowRight = styled(MdKeyboardArrowRight)`
   margin-left: 8px;
   font-size: 20px;
 `;
-export default BackgroundVideo;
+export default ParallaxAlternate;
