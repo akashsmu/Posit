@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import sample from "../InfoSection/hardware.jpg";
+import sample from "../InfoSection/pexels-skitterphoto.jpg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import { MdKeyboardArrowRight, MdArrowForward } from "react-icons/md";
-import TextAnimation from "./TextAnimation";
+import TextAnimation from "../../userContent/TextAnimation";
 
 function ParallaxAlternate() {
   const [hover, setHover] = useState(false);
@@ -17,7 +17,7 @@ function ParallaxAlternate() {
         <Videobg src={sample} alt="hardware" />
       </Herobg>
       <HeroContent>
-        <TextAnimation />
+        <TextAnimation size="small" />
         <HeroP>For More Info On Posit , Head To Resources</HeroP>
         <HeroBtnWrapper>
           <Button
@@ -51,13 +51,6 @@ const Herocontainer = styled.div`
     left: 0;
     bottom: 0;
     right: 0;
-    background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.2) 0%,
-        rgba(0, 0, 0, 0.6) 100%
-      ),
-      linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
-    z-index: 2;
   }
 `;
 
@@ -76,10 +69,12 @@ const Videobg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: blur(3px) contrast(70%);
 `;
 
 const HeroContent = styled.div`
   z-index: 3;
+  margin-top: 200px;
   max-width: 1200px;
   position: absolute;
   padding: 8px 24px;

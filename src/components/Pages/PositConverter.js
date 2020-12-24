@@ -290,6 +290,7 @@ const PosTable = styled.div``;
 const Wrapper = styled.div`
   background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
   height: auto;
+  margin-bottom: 50px;
 `;
 const ButtonDiv = styled.div`
   display: flex;

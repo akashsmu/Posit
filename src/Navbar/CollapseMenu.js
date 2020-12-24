@@ -7,6 +7,10 @@ import { Link } from "react-router-dom";
 const CollapseMenu = (props) => {
   const { open } = useSpring({ open: props.navbarState ? 0 : 1 });
 
+  const handleClick = () => {
+    props.handleNavbar(!open);
+  };
+
   if (props.navbarState === true) {
     return (
       <CollapseWrapper
@@ -17,14 +21,19 @@ const CollapseMenu = (props) => {
               output: [0, -20, 0, -200],
             })
             .interpolate((openValue) => `translate3d(0, ${openValue}px, 0`),
-        }}
-      >
+        }}>
         <NavItems>
-          <NavLinks to="/">Home</NavLinks>
+          <NavLinks to="/" onClick={handleClick}>
+            Home
+          </NavLinks>
 
-          <NavLinks to="/projects">Projects</NavLinks>
+          <NavLinks to="/projects" onClick={handleClick}>
+            Projects
+          </NavLinks>
 
-          <NavLinks to="/resources">Resources</NavLinks>
+          <NavLinks to="/resources" onClick={handleClick}>
+            Resources
+          </NavLinks>
         </NavItems>
       </CollapseWrapper>
     );
@@ -78,7 +87,7 @@ const NavItems = styled.ul`
     line-height: 8;
     color: #000;
     text-transform: uppercase;
-    text-decoration: none;
+    text-decoration: none !important;
     cursor: pointer;
     transition: all 0.3s ease-out;
 
@@ -91,10 +100,11 @@ const NavItems = styled.ul`
 const NavLinks = styled(Link)`
   color: #fff;
   text-transform: uppercase;
+  outline: none;
   font-weight: 600;
   border-bottom: 1px solid transparent;
   margin: 0 1.5rem;
   transition: all 300ms linear 0s;
-  text-decoration: none;
+  text-decoration: none !important;
   cursor: pointer;
 `;
