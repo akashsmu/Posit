@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@material-ui/core";
 // import PositTable from "./pageComponents/PositTable";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import "../../../node_modules/react-vis/dist/style.css";
 import clsx from "clsx";
 import NumberFormat from "react-number-format";
@@ -51,6 +51,27 @@ const usestyles = makeStyles((theme) => ({
     fontSize: "1.3rem",
     fontWeight: "700",
     color: "rgb(155,10,190)",
+  },
+  Heading: {
+    color: "#000",
+    fontFamily: "Courier New",
+    fontWeight: "700",
+    textAlign: "center",
+    paddingTop: "2%",
+    animation: `$myEffect 2000ms ${theme.transitions.easing.easeInOut}`,
+  },
+  "@keyframes myEffect": {
+    "0%": {
+      opacity: 0,
+      transform: "translateY(-200%) ",
+    },
+    "50%": {
+      opacity: 0.5,
+    },
+    "100%": {
+      opacity: 1,
+      transform: "translateY(0) ",
+    },
   },
 }));
 
@@ -129,15 +150,7 @@ export default function PositConverter() {
   return (
     <Wrapper>
       <ThemeProvider theme={theme}>
-        <Typography
-          variant="h1"
-          style={{
-            color: "#000",
-            fontFamily: "Courier New",
-            fontWeight: "700",
-            textAlign: "center",
-            paddingTop: "2%",
-          }}>
+        <Typography variant="h1" className={classes.Heading}>
           Convert Decimal to Posit
         </Typography>
       </ThemeProvider>

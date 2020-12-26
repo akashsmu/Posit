@@ -9,7 +9,7 @@ import IEEEContent from "./Pages/IEEEContent";
 
 export default function Home() {
   const [width, setWidth] = useState();
-  console.log(width);
+
   return (
     <div>
       <ParallaxProvider>
@@ -19,7 +19,6 @@ export default function Home() {
           onResize={(windowSize) => {
             setWidth(windowSize.windowWidth);
           }}>
-          {" "}
           {width >= "1280" ? <ParallaxPage /> : <ParallaxAlternate />}
         </WindowSizeListener>
       </ParallaxProvider>

@@ -30,10 +30,19 @@ export default function ParallaxPage(props) {
             <HeroContent>
               <TextAnimation size="small" />
 
-              <HeroP>For More Info On Posit , Head To Resources</HeroP>
+              <HeroP>
+                Unum is a number format that is similar to IEEE 754 format
+                (floating point numbers) that is publicly proposed by
+                <span style={{ color: "#edb10c" }}> John L. Gustafson</span> in
+                2013.
+                <br />
+                <span style={{ color: "#d2eb34" }}>
+                  For More Info On Posit , Head To Resources
+                </span>
+              </HeroP>
               <HeroBtnWrapper>
                 <Button
-                  to="/"
+                  to="/resources"
                   primary="true"
                   dark="true"
                   big="false"
@@ -118,7 +127,6 @@ const HeroContent = styled.div`
 // `;
 
 const HeroP = styled.p`
-  margin-top: 40px;
   color: #fff;
   font-size: 24px;
   text-align: center;

@@ -38,13 +38,16 @@ function IEEEContent() {
           <br />
           This article explains the concept lucidly and Recommend to take a look
           at this:
-          <a href="src\components\InfoSection\ieeePaper.pdf" download>
+          <a
+            href="https://www.ias.ac.in/public/Volumes/reso/021/01/0011-0030.pdf"
+            target="_blank"
+            rel="nonreferrer">
             Click Here
           </a>
         </HeroP>
         <HeroBtnWrapper>
           <Button
-            to="/"
+            to="/resources"
             primary="true"
             dark="true"
             big="false"

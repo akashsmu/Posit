@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Brand = () => {
   return (
-    <StyledBrand to="\">
+    <StyledBrand>
       <h1>POSITS</h1>
     </StyledBrand>
   );
@@ -12,7 +12,7 @@ const Brand = () => {
 
 export default Brand;
 
-const StyledBrand = styled(Link)`
+const StyledBrand = styled.div`
   display: flex;
   justify-self: flex-start;
   cursor: pointer;
