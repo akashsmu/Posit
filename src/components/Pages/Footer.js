@@ -11,6 +11,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     position: "sticky",
+    bottom:'0px',
+    left:'0px'
     width: "auto",
     height: "100%",
   },

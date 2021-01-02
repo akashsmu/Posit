@@ -1,47 +1,62 @@
-import { Typography, makeStyles } from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
 import React from "react";
-import styled from 'styled-components'
-
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    fontFamily: "Courier New",
+  wrapper: {
+    height: "100%",
+    paddingBottom: "2%",
   },
-  ieeeResource: {
+  li: {
+    listStyleType: "decimal",
     fontFamily: "Courier New",
+    fontSize: "2rem",
+    fontWeight: "700",
+    textDecoration: "underline",
+    paddingTop: "0.3%",
   },
-  positResource: {
+  ul: {
+    paddingTop: "0.5%",
     fontFamily: "Courier New",
+    paddingLeft: "7%",
+    width: "100%",
+  },
+  title: {
+    paddingTop: "2%",
+    fontFamily: "Courier New",
+    fontWeight: "700",
+    paddingLeft: "2%",
   },
 }));
-
 function Resources() {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <Typography variant="h2" align="center" className={classes.root}>
-        Resources
+    <div className={classes.wrapper}>
+      <Typography variant="h2" className={classes.title}>
+        Hello World
       </Typography>
-      <div className={classes.ieeeResource}>
-        <Typography variant="h4"> IEEE 754 </Typography>
-        <NavItems>
-          <NavLinks>Wikipedia Page on IEEE 754</NavLinks>
-          <NavLinks>Decimal To IEEE 754 Converter</NavLinks>
-        </NavItems>
-      </div>
-      <div>
-        <Typography variant="h4"> POSIT </Typography>
-      </div>
+      <ul className={classes.ul}>
+        <li className={classes.li}>resource 1</li>
+        <li className={classes.li}>resource 1</li>
+        <li className={classes.li}>resource 1</li>
+      </ul>
+      <Typography variant="h2" className={classes.title}>
+        Videos
+      </Typography>
+      <ul className={classes.ul}>
+        <li className={classes.li}>resource 1</li>
+        <li className={classes.li}>resource 1</li>
+        <li className={classes.li}>resource 1</li>
+      </ul>
+      <Typography variant="h2" className={classes.title}>
+        E-Books and Papers
+      </Typography>
+      <ul className={classes.ul}>
+        <li className={classes.li}>resource 1</li>
+        <li className={classes.li}>resource 1</li>
+        <li className={classes.li}>resource 1</li>
+      </ul>
     </div>
   );
 }
-
-
-
-
-const NavItems=styled.ul``;
-
-const NavLinks=styled.li``
-
 
 export default Resources;
