@@ -10,12 +10,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    position: "sticky",
-    bottom: "0px",
+    position: "relative",
+    bottom: "-50px",
     left: "0px",
     width: "100%",
-    height: "200px",
-    zIndex: "9999",
+    right: "0px",
   },
   footerP: {
     fontFamily: "Courier New",
@@ -27,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   footer: {
-    padding: theme.spacing(6, 3),
+    padding: theme.spacing(3),
     marginTop: "auto",
     textAlign: "center",
     backgroundColor: "white",
@@ -48,11 +47,11 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("sm")]: {
       width: "250px",
-      left: "25%",
+      left: "20%",
     },
     [theme.breakpoints.between("sm", "md")]: {
       width: "350px",
-      left: "35%",
+      left: "30%",
     },
   },
   ReduceScreen: {
@@ -89,14 +88,12 @@ function Footer() {
             <a
               href="https://www.linkedin.com/in/akash-s-m-u-16789b97"
               target="_blank"
-              rel="noreferrer"
-            >
+              rel="noreferrer">
               <IconContext.Provider
                 value={{
                   color: "#0ac8f2",
                   className: `${classes.linkedin}`,
-                }}
-              >
+                }}>
                 <div>
                   <FaLinkedinIn />
                 </div>

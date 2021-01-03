@@ -22,7 +22,7 @@ function App() {
         <Route path="/resources" component={Resources}></Route>
       </Switch>
 
-      <Footer page={"convert"} />
+      <Footer />
     </Router>
   );
 }
