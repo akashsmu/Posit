@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@material-ui/core";
 // import PositTable from "./pageComponents/PositTable";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import "../../../node_modules/react-vis/dist/style.css";
 import clsx from "clsx";
 import NumberFormat from "react-number-format";
@@ -302,8 +302,12 @@ export default function PositConverter() {
 const PosTable = styled.div``;
 const Wrapper = styled.div`
   background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
-  height: auto;
   margin-bottom: 50px;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 `;
 const ButtonDiv = styled.div`
   display: flex;
@@ -327,7 +331,8 @@ const AppLeft = styled.div`
 const PositValue = styled.div`
   color: #000;
   font-size: 2rem;
-  margin: 5%;
+  padding: 5%;
+
   @media screen and (max-width: 990px) {
     font-size: 200%;
   }

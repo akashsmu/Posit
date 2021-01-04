@@ -20,14 +20,15 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Courier New",
     fontSize: "2.5rem",
     display: "flex",
+    marginTop: "15px",
     justifyContent: "space-between",
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
     },
   },
   footer: {
-    padding: theme.spacing(3),
-    marginTop: "auto",
+    padding: theme.spacing(6, 3),
+    marginTop: "20px",
     textAlign: "center",
     backgroundColor: "white",
     color: "black",
@@ -70,6 +71,9 @@ function Footer() {
       <div className={classes.line} />
       <footer className={classes.footer}>
         <Container maxWidth="sm" className={classes.footerP}>
+          <br></br>
+          <br></br>
+
           <div>
             <Typography variant="h4">
               <italic>Narayana M Hedge</italic>
