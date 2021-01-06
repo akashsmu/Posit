@@ -50,38 +50,50 @@ function Resources() {
         </Typography>
         <ul className="ul">
           <li className="li">
-            Description here -
-            <a href="https://posithub.org/khub ">(Hyperlink here)</a>
-          </li>
-          <li className="li">
-            Description here -
             <a
-              href="https://www.h-schmidt.net/FloatConverter/IEEE754.html
-          ">
-              (Hyperlink here)
+              href="https://www.h-schmidt.net/FloatConverter/IEEE754.html"
+              target="_blank"
+              rel="noreferrer">
+              Floating To IEEE 754 Converter
             </a>
+            &nbsp; This website helps you to convert a floating point number to
+            IEEE 754 standard format
           </li>
           <li className="li">
-            Description here -
             <a
-              href="https://www.geeksforgeeks.org/ieee-standard-754-floating-point-numbers
-          ">
-              (Hyperlink here)
+              href="https://www.geeksforgeeks.org/ieee-standard-754-floating-point-numbers"
+              target="_blank"
+              rel="noreferrer">
+              Introduction To IEEE 754
+            </a>
+            &nbsp; Head to Geeks for Geeks page for brief Introduction on IEEE
+            754
+          </li>
+          <li className="li">
+            <a
+              href="https://en.wikipedia.org/wiki/IEEE_754"
+              target="_blank"
+              rel="noreferrer">
+              IEEE 754 on Wikipedia
             </a>
           </li>
           <li className="li">
-            Description here -
-            <a href="https://en.wikipedia.org/wiki/IEEE_754">
-              (Hyperlink here)
-            </a>
-          </li>
-          <li className="li">
-            Description here -
             <a
               href="https://insidehpc.com/2017/02/john-gustafson-presents-beyond-floating-point-next-generation-computer-arithmetic/
-          ">
-              (Hyperlink here)
+          "
+              target="_blank"
+              rel="noreferrer">
+              Beyond Floating Point
             </a>
+          </li>
+          <li className="li">
+            <a
+              href="https://posithub.org/khub "
+              target="_blank"
+              rel="noreferrer">
+              Posit Hub
+            </a>
+            &nbsp;This is the Official Posit Website.
           </li>
         </ul>
         <Typography variant="h2" className="title">
