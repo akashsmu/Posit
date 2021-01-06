@@ -10,8 +10,8 @@ function FinalHome() {
         Image={Image2}
         alt={"Float"}
         Color={"white"}
-        topOff={"-450px"}
-        bottomOff={"-700px"}
+        topOff={"-350px"}
+        bottomOff={"-600px"}
       />
     </div>
   );

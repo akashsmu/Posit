@@ -1,14 +1,49 @@
-import { Typography } from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import YouTube from "react-youtube";
 import styled from "styled-components";
 
+const useStyles = makeStyles((theme) => ({
+  youtubeSize: {
+    [theme.breakpoints.down("md")]: {
+      height: "300px",
+      width: "500px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      height: "200px",
+      width: "300px",
+    },
+    [theme.breakpoints.between("sm", "md")]: {
+      height: "300px",
+      width: "450px",
+    },
+    [theme.breakpoints.up("md")]: {
+      height: "390px",
+      width: "640px",
+    },
+  },
+}));
+
 function Resources() {
+  const classes = useStyles();
+
   const onready = (event) => {
     event.target.pauseVideo();
   };
+
+  const opts = {
+    height: "390",
+    width: "640",
+    playerVars: {
+      autoplay: 1,
+    },
+  };
+
   return (
     <Styles>
+      <Typography variant="h1" className="resources">
+        Resources
+      </Typography>
       <div className="wrapper">
         <Typography variant="h2" className="title">
           Websites
@@ -22,8 +57,7 @@ function Resources() {
             Description here -
             <a
               href="https://www.h-schmidt.net/FloatConverter/IEEE754.html
-          "
-            >
+          ">
               (Hyperlink here)
             </a>
           </li>
@@ -31,8 +65,7 @@ function Resources() {
             Description here -
             <a
               href="https://www.geeksforgeeks.org/ieee-standard-754-floating-point-numbers
-          "
-            >
+          ">
               (Hyperlink here)
             </a>
           </li>
@@ -46,8 +79,7 @@ function Resources() {
             Description here -
             <a
               href="https://insidehpc.com/2017/02/john-gustafson-presents-beyond-floating-point-next-generation-computer-arithmetic/
-          "
-            >
+          ">
               (Hyperlink here)
             </a>
           </li>
@@ -62,16 +94,10 @@ function Resources() {
           </li>
           <div className="vid-wrapper">
             <YouTube
-              opts={{
-                height: "240",
-                width: "330",
-                playerVars: {
-                  autoplay: 1,
-                },
-              }}
+              className={classes.youtubeSize}
+              opts={opts}
               videoId="RuKkePyo9zk"
-              onReady={onready}
-            ></YouTube>
+              onReady={onready}></YouTube>
           </div>
           <li className="li">
             Talk given by Dr. John L Gustafson on Posits at Stanford EE Computer
@@ -79,16 +105,10 @@ function Resources() {
           </li>
           <div className="vid-wrapper">
             <YouTube
-              opts={{
-                height: "240",
-                width: "330",
-                playerVars: {
-                  autoplay: 1,
-                },
-              }}
+              className={classes.youtubeSize}
+              opts={opts}
               videoId="aP0Y1uAA-2Y"
-              onReady={onready}
-            ></YouTube>
+              onReady={onready}></YouTube>
           </div>
           <li className="li">
             In this video from the HPC Advisory Council Australia Conference,
@@ -96,16 +116,10 @@ function Resources() {
           </li>
           <div className="vid-wrapper">
             <YouTube
-              opts={{
-                height: "240",
-                width: "330",
-                playerVars: {
-                  autoplay: 1,
-                },
-              }}
+              className={classes.youtubeSize}
+              opts={opts}
               videoId="N05yYbUZMSQ"
-              onReady={onready}
-            ></YouTube>
+              onReady={onready}></YouTube>
           </div>
         </ul>
         {/* <Typography variant="h2" className="title">
@@ -122,6 +136,10 @@ function Resources() {
 }
 
 const Styles = styled.div`
+  .resources {
+    text-align: center;
+    padding-top: 20px;
+  }
   .wrapper {
     height: 100%;
     padding-bottom: 2%;
